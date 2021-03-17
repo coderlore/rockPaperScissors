@@ -1,35 +1,35 @@
 //Create a random number between 1 - 3
 const getRandomNumber = (min,max) => Math.floor(Math.random() * (max-min + 1)) + min;
 
-//Assign the computer player a random value
-const getComputerChoice = () => getRandomNumber(1,3);
-const computerPlay = getComputerChoice();
-
-//Assign numerical values for rock, paper, scissors
-if (computerPlay == 1) {
-    result = "rock";
-}   else if (computerPlay == 2) {
-    result = "paper";
-}   else if (computerPlay == 3) {
-    result = "scissors";
-}   else {
-    result = "No Good";
-}
-
-// Prompt user to enter their choice
-let userChoice = window.prompt("Rock, Paper, Scissors? (enter your choice)");
-if (userChoice.toLowerCase() == "rock") {
-    userChoice = "rock";
-}   else if (userChoice.toLowerCase() == "paper") {
-    userChoice = "paper";
-}   else if (userChoice.toLowerCase() == "scissors") {
-    userChoice = "scissors";
-}   else {
-    alert("Invalid choice! Restart the game and try again.")
-}
-
 //Function for single round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {
+    //Assign the computer player a random value
+    let getComputerChoice = () => getRandomNumber(1,3);
+    let computerPlay = getComputerChoice();
+
+    //Assign numerical values for rock, paper, scissors
+    if (computerPlay == 1) {
+        result = "rock";
+    }   else if (computerPlay == 2) {
+        result = "paper";
+    }   else if (computerPlay == 3) {
+        result = "scissors";
+    }   else {
+        result = "No Good";
+    }
+
+    // Prompt user to enter their choice
+    let userChoice = window.prompt("Rock, Paper, Scissors? (enter your choice)");
+    if (userChoice.toLowerCase() == "rock") {
+        userChoice = "rock";
+    }   else if (userChoice.toLowerCase() == "paper") {
+        userChoice = "paper";
+    }   else if (userChoice.toLowerCase() == "scissors") {
+        userChoice = "scissors";
+    }   else {
+        alert("Invalid choice! Restart the game and try again.")
+    }
+
     if (userChoice == result) {
         alert(`Draw! The computer chose ${result}.`)
     }   else if (userChoice == "rock" && result == "scissors") {
@@ -48,5 +48,7 @@ function playRound(playerSelection, computerSelection) {
         alert("Something is wrong! Retry the game.")
     }
     }   
-
-playRound();
+    
+for (let step = 0; step < 5; step++) {
+    playRound();
+}

@@ -23,19 +23,41 @@ function playRound(playerSelection, computerSelection) {
     }
 
     // Prompt user to enter their choice
-    let userChoice = window.prompt("Rock, Paper, Scissors? (enter your choice)");
-    if (userChoice.toLowerCase() == "rock") {
-        userChoice = "rock";
-    }   else if (userChoice.toLowerCase() == "paper") {
-        userChoice = "paper";
-    }   else if (userChoice.toLowerCase() == "scissors") {
-        userChoice = "scissors";
-    }   else {
-        alert("Invalid choice! Restart the game and try again.")
-    }
+    //let userChoice = window.prompt("Rock, Paper, Scissors? (enter your choice)");
+    const buttons = document.querySelectorAll('button');
+
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
+            //alert(button.id);
+            if (button.id == 1) {
+                userChoice = 'rock';
+                if (userChoice == result) {
+                    alert('Draw'); 
+                    console.log(result);
+                }   else if (userChoice == 'rock' && result == 'scissors') {
+                    playerScore += 1; 
+                    console.log('Winner');
+                }   else if (userChoice == 'rock' && result == 'paper') {
+                    computerScore += 1;
+                    console.log('Loser');
+                }   else {
+                    console.log('Something wrong');
+                }
+            } else if (button.id == 2) {
+                console.log('Paper');
+            } else if (button.id == 3) {
+                console.log('scissors');
+            } else {
+                alert('Invalid choice! Restart the game and try again.');
+            }
+        });
+    });
 
     // Check to see who is the winner and add how many times the player and computer wins/loses
-    if (userChoice == result) {
+    /*if (userChoice == result) {
         alert(`Draw! The computer chose ${result}.`)
     }   else if (userChoice == "rock" && result == "scissors") {
         alert(`You win! The computer chose ${result}.`);
@@ -57,11 +79,12 @@ function playRound(playerSelection, computerSelection) {
         playerScore = ++playerScore;
     }   else {
         alert("Something is wrong! Retry the game.")
-    }
-    }   
+    }*/
+}
 
+    playRound();
 // Play 5 rounds
-for (let step = 0; step < 5; step++) {
+/*for (let step = 0; step < 5; step++) {
     playRound();
 }
 
@@ -74,4 +97,4 @@ if (playerScore == computerScore) {
     alert(`You lose! The computer is the winner of 5 rounds.`)
 }   else {
     alert("Something is wrong! Retry the game.")
-}
+}*/

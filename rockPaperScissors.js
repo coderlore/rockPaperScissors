@@ -17,20 +17,25 @@ function computerPlay() {
 function playRound(playerSelection) {
     let computerSelection = computerPlay();
     if (playerSelection == computerSelection) {
-        alert('Draw');
+        //alert('Draw');
+        document.getElementById('message').innerHTML = `Draw... you both chose ${playerSelection}.`;
     }   else if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'scissors' && computerSelection == 'paper')) {
         playerScore += 1;
-        console.log(`You win, ${playerSelection} beats ${computerSelection}.`);
+        //console.log(`You win, ${playerSelection} beats ${computerSelection}.`);
+        document.getElementById('message').innerHTML = `You win... ${playerSelection} beats ${computerSelection}.`;
         document.getElementById('player').innerHTML = `Player's score is: ${playerScore}`;
             if (playerScore == 5) {
-                console.log('You are the winner after 5 rounds!');
+                document.getElementById('message').innerHTML = 'You are the winner after 5 rounds!';
+                //console.log('You are the winner after 5 rounds!');
             }   
     }   else if ((computerSelection == 'rock' && playerSelection == 'scissors') || (computerSelection == 'paper' && playerSelection == 'rock') || (computerSelection == 'scissors' && playerSelection == 'paper')) {
         computerScore += 1; 
-        console.log(`You lose, ${computerSelection} beats ${playerSelection}.`);
+        //console.log(`You lose, ${computerSelection} beats ${playerSelection}.`);
+        document.getElementById('message').innerHTML = `You lose, ${computerSelection} beats ${playerSelection}.`;
         document.getElementById('opponent').innerHTML = `Opponent's score is: ${computerScore}`;
             if (computerScore == 5) {
-                console.log('You are the winner after 5 rounds!');
+                document.getElementById('message').innerHTML = 'Opponent is the winner after 5 rounds!';
+                //console.log('You are the winner after 5 rounds!');
             } 
     }   else {
         console.log('Something wrong');

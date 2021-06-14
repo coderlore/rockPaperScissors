@@ -8,4 +8,6 @@ A random number generator is used to determine the opponent's choice. The player
 
 The game consists of using alerts to let the player know who won. 
 
+https://coderlore.github.io/rockPaperScissors/
+
 Created by @coderlore. Connect with me on Instagram.
